@@ -51,6 +51,13 @@
             // scene -> container object of our whole world
             scene = new THREE.Scene();
             
+            // Isometric view -> all lines along the z axis will be drawn parallel directly building out your perspective
+            // let camera2 = new THREE.OrthoGraphicCamera(-300, 300, 200, -200, 0.1, 10000); //(left, right, top, bottom, near, far)
+            
+            // Debugging Camera's with the camera helper
+            let newCamera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 30, 5000);
+            let cameraHelper = new THREE.CameraHelper(newCamera);
+            scene.add(cameraHelper);
             // LIGHTS
             // lights -> affect your scene also depends on the materials that you are using
             let light = new THREE.AmbientLight( 0xffffff, .5); // default lighting (color, intensity), floods entire scene
