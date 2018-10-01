@@ -47,7 +47,8 @@
             // you can create different kinds of camera's parameters
             // perspective camera is normal type of view where objects get smaller as they are further away
             camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 30, 5000); //(verticle field of view, aspect ratio of our window(or renderer), near, far)
-            // camera.position.z = 500;
+            camera.position.y = 200;
+            // camera.position.z = -200;
             // scene -> container object of our whole world
             scene = new THREE.Scene();
             
@@ -55,9 +56,9 @@
             // let camera2 = new THREE.OrthoGraphicCamera(-300, 300, 200, -200, 0.1, 10000); //(left, right, top, bottom, near, far)
             
             // Debugging Camera's with the camera helper
-            let newCamera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 30, 5000);
-            let cameraHelper = new THREE.CameraHelper(newCamera);
-            scene.add(cameraHelper);
+            // let newCamera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 30, 5000);
+            // let cameraHelper = new THREE.CameraHelper(newCamera);
+            // scene.add(cameraHelper);
             // LIGHTS
             // lights -> affect your scene also depends on the materials that you are using
             let light = new THREE.AmbientLight( 0xffffff, .5); // default lighting (color, intensity), floods entire scene
@@ -113,7 +114,7 @@
 
             // BOX
             // X,Y,Z - you can also pass in three extra params that will define the number of faces on each of the sides of thecube
-            // let geometry = new THREE.BoxGeometry(100, 100, 100); 
+            let geometry = new THREE.BoxGeometry(100, 100, 100); 
             
             // SPHERE
             // let geometry = new THREE.SphereGeometry(150);
@@ -122,7 +123,7 @@
             // let geometry = new THREE.TorusGeometry(150, 40, 25, 100);
 
             // "PRETZEL"
-            let geometry = new THREE.TorusKnotGeometry(100, 20, 25, 100);
+            // let geometry = new THREE.TorusKnotGeometry(100, 20, 25, 100);
 
             // TUBE or PATH
             // let curve = new THREE.SplineCurve3([
@@ -150,13 +151,43 @@
             let mesh = new THREE.Mesh(geometry, material);
             // light3.targert = mesh;
             // mesh.castShadow = true;
-            mesh.position.set(100, 0, -1000);
+            mesh.position.set(150, 0, -1000);
             scene.add(mesh);
 
             let geometry2 = new THREE.BoxGeometry(100, 100, 100);
             let mesh2 = new THREE.Mesh(geometry2, material);
-            mesh2.position.set(-200, 0, -1000);
+            mesh2.position.set(-150, 0, -1000);
             scene.add(mesh2);
+
+            let geometry3 = new THREE.BoxGeometry(100, 100, 100);
+            let mesh3 = new THREE.Mesh(geometry3, material);
+            mesh3.position.set(300, 0, -1000);
+            scene.add(mesh3);
+
+            let geometry4 = new THREE.BoxGeometry(100, 100, 100);
+            let mesh4 = new THREE.Mesh(geometry4, material);
+            mesh4.position.set(-300, 0, -1000);
+            scene.add(mesh4);
+
+            let geometry5 = new THREE.BoxGeometry(100, 100, 100);
+            let mesh5 = new THREE.Mesh(geometry5, material);
+            mesh5.position.set(-450, 0, -1000);
+            scene.add(mesh5);
+
+            let geometry6 = new THREE.BoxGeometry(100, 100, 100);
+            let mesh6 = new THREE.Mesh(geometry6, material);
+            mesh6.position.set(450, 0, -1000);
+            scene.add(mesh6);
+
+            let geometry7 = new THREE.BoxGeometry(100, 100, 100);
+            let mesh7 = new THREE.Mesh(geometry7, material);
+            mesh7.position.set(150, 0, -1200);
+            scene.add(mesh7);
+
+            let geometry8 = new THREE.BoxGeometry(100, 100, 100);
+            let mesh8 = new THREE.Mesh(geometry8, material);
+            mesh8.position.set(-150, 0, -1200);
+            scene.add(mesh8);
 
             // For above shaders
             // let material = new THREE.ShaderMaterial({
@@ -166,17 +197,17 @@
 
             // ANIMATE
             requestAnimationFrame(render);
-            let delta = 0;
+            // let delta = 0;
             function render() {
-                delta += 0.01;
-                camera.lookAt(light.position);
-                camera.position.x = Math.sin(delta) * 3000;
-                camera.position.z = Math.cos(delta) * 3000;
+                // delta += 0.01;
+                // camera.lookAt(light.position);
+                // camera.position.x = Math.sin(delta) * 3000;
+                // camera.position.z = Math.cos(delta) * 3000;
 
-                mesh.rotation.x += .03;
-                mesh.rotation.y += .03;
-                mesh2.rotation.x += -.06;
-                mesh2.rotation.y += -.06;
+                // mesh.rotation.x += .03;
+                // mesh.rotation.y += .03;
+                // mesh2.rotation.x += -.06;
+                // mesh2.rotation.y += -.06;
                 renderer.render(scene, camera);
                 requestAnimationFrame(render);
             }
